@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>ねこなでなで</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="game">
+
+  <section id="screen-start" class="screen is-active">
+    <button class="small secondary btn-bgm screen-bgm-btn" type="button" aria-pressed="true">♪ ON</button>
+    <h1><span class="sparkle">✦</span> ねこなでなで <span class="sparkle">✦</span></h1>
+    <p class="sub">ねこをタップしてなでなでしよう♡<br>すきなところを、やさしく、ゆっくり。</p>
+    <div class="start-art" id="startArt"></div>
+    <ul class="howto">
+      <li>❤️ 好きなところをなでるとハートがもらえる</li>
+      <li>💔 嫌なところをなでると怒ってハートが減る</li>
+      <li>😾 ごきげんゲージが低いときは、どこをなでても怒る</li>
+      <li>⚡ 連打するとごきげんが下がる</li>
+      <li>⏱ 制限時間は 60 秒</li>
+    </ul>
+    <div class="actions"><button id="btnStart">はじめる ♡</button></div>
+  </section>
+
+  <section id="screen-select" class="screen">
+    <button class="small secondary btn-bgm screen-bgm-btn" type="button" aria-pressed="true">♪ ON</button>
+    <h2>どのこをなでる？ ♡</h2>
+    <div class="cat-list" id="catList"></div>
+    <div class="actions"><button class="secondary" id="btnBackToStart">もどる</button></div>
+  </section>
+
+  <section id="screen-game" class="screen">
+    <div class="game-head">
+      <strong id="catName"></strong>
+      <span id="catLevel" class="badge"></span>
+      <div class="head-actions">
+        <button class="small secondary btn-bgm" type="button" aria-pressed="true">♪ ON</button>
+        <button class="small secondary" id="btnQuit">やめる</button>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span>ハート</span><strong id="hearts">0</strong></div>
+      <div class="stat"><span>のこり時間</span><strong id="timer">60</strong><small> 秒</small></div>
+    </div>
+    <div class="stat mood-box">
+      <span id="moodLabel">ごきげん</span>
+      <div class="meter"><div class="meter-fill" id="moodFill"></div><div class="meter-line" id="moodLine"></div></div>
+    </div>
+    <div class="stage" id="stage"></div>
+    <div class="warning" id="warning"></div>
+    <div class="msg" id="message" aria-live="polite"></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section id="screen-result" class="screen">
+    <h2>けっか ♡</h2>
+    <div class="result-art" id="resultArt"></div>
+    <p class="result-name" id="resultName"></p>
+    <p class="result-hearts">❤️ <strong id="resultHearts">0</strong></p>
+    <p class="result-record" id="resultRecord"></p>
+    <p class="result-comment" id="resultComment"></p>
+    <div class="actions">
+      <button id="btnRetry">もう一度</button>
+      <button class="secondary" id="btnReselect">猫を選びなおす</button>
+    </div>
+  </section>
+
+</main>
+<script src="js/cats.js"></script>
+<script src="js/sfx.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
