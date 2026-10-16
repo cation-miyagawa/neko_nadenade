@@ -3,18 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>ねこなでなで</title>
+<title>もふって猫LOVE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 <main class="game">
 
   <section id="screen-start" class="screen is-active">
-    <button class="small secondary btn-bgm screen-bgm-btn" type="button" aria-pressed="true">♪ ON</button>
-    <h1><span class="sparkle">✦</span> ねこなでなで <span class="sparkle">✦</span></h1>
+    <div class="screen-top">
+      <button class="small secondary btn-bgm" type="button" aria-pressed="true">♪ ON</button>
+    </div>
+    <h1><span class="sparkle">✦</span> もふって猫LOVE <span class="sparkle">✦</span></h1>
     <p class="sub">ねこをタップしてなでなでしよう♡<br>すきなところを、やさしく、ゆっくり。</p>
     <div class="start-art" id="startArt"></div>
     <ul class="howto">
@@ -28,7 +30,9 @@
   </section>
 
   <section id="screen-select" class="screen">
-    <button class="small secondary btn-bgm screen-bgm-btn" type="button" aria-pressed="true">♪ ON</button>
+    <div class="screen-top">
+      <button class="small secondary btn-bgm" type="button" aria-pressed="true">♪ ON</button>
+    </div>
     <h2>どのこをなでる？ ♡</h2>
     <div class="cat-list" id="catList"></div>
     <div class="actions"><button class="secondary" id="btnBackToStart">もどる</button></div>

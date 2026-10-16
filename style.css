@@ -40,7 +40,7 @@ h1, h2 {
   color: #d4537e;
   letter-spacing: .04em;
 }
-h1 { font-size: clamp(28px, 7vw, 42px); }
+h1 { font-size: clamp(22px, 5.6vw, 36px); line-height: 1.35; }
 h2 { font-size: clamp(22px, 5vw, 30px); margin-bottom: 16px; }
 h1 .sparkle {
   display: inline-block;
@@ -54,7 +54,11 @@ h1 .sparkle:last-child { animation-delay: .7s; }
 /* screens */
 .screen { display: none; position: relative; }
 .screen.is-active { display: block; animation: fadein .25s ease-out; }
-.screen-bgm-btn { position: absolute; top: 0; right: 0; z-index: 2; }
+.screen-top {
+  display: flex;
+  justify-content: flex-end;
+  margin: -6px 0 4px;
+}
 @keyframes fadein { from { opacity: 0; transform: translateY(6px); } }
 
 /* buttons */
