@@ -30,6 +30,9 @@ const CATS = [
   {
     id: 'munchkin',
     name: 'マンチカン',
+    petName: 'ナイト君',
+    gender: '男の子',
+    age: 1,
     level: '初心者向け',
     levelClass: 'easy',
     description: '短い脚がチャームポイント。どこをなでても喜ぶ人なつっこい子。',
@@ -67,6 +70,9 @@ const CATS = [
   {
     id: 'mix',
     name: 'MIX',
+    petName: 'さくらちゃん',
+    gender: '女の子',
+    age: 3,
     level: '中級者向け',
     levelClass: 'normal',
     description: '近所にいそうなキジトラの雑種。気分の波があって、なでる場所にうるさい。',
@@ -106,6 +112,9 @@ const CATS = [
   {
     id: 'manul',
     name: 'マヌルネコ',
+    petName: 'ジョニー君',
+    gender: '男の子',
+    age: 5,
     level: '上級者向け',
     levelClass: 'hard',
     description: '世界最古の猫のひとつ。いつも不機嫌そうな顔。ときどき気まぐれでなでさせてくれる。',
@@ -169,7 +178,7 @@ function buildCatSvg(cat, opts = {}) {
   const L = cat.look;
   const c = L.colors;
   const style = `--fur:${c.fur};--fur-stroke:${c.stroke};--mark:${c.mark};--belly:${c.belly};--inner:${c.inner};--nose:${c.nose}`;
-  return `<svg class="cat-svg ${opts.className || ''}" viewBox="0 0 600 390" style="${style}" role="img" aria-label="${cat.name}のイラスト">`
+  return `<svg class="cat-svg ${opts.className || ''}" viewBox="0 0 600 390" style="${style}" role="img" aria-label="${cat.petName}のイラスト">`
     + '<ellipse cx="300" cy="342" rx="205" ry="27" fill="#ccb0a3" opacity=".27"/>'
     + `<g class="tail">${L.tail}</g>`
     + (L.behindBody || '')
@@ -197,5 +206,9 @@ function likesText(cat) {
   return cat.likes.length === ALL_ZONES.length ? '全身' : cat.likes.map(z => ZONE_NAMES[z]).join('・');
 }
 
-window.NekoData = { GAME_CONFIG, ZONE_NAMES, CATS, buildCatSvg, likesText };
+function profileText(cat) {
+  return `${cat.name}・${cat.gender}・${cat.age}歳`;
+}
+
+window.NekoData = { GAME_CONFIG, ZONE_NAMES, CATS, buildCatSvg, likesText, profileText };
 })();

@@ -1,7 +1,7 @@
 (() => {
 'use strict';
 
-const { GAME_CONFIG, ZONE_NAMES, CATS, buildCatSvg, likesText } = window.NekoData;
+const { GAME_CONFIG, ZONE_NAMES, CATS, buildCatSvg, likesText, profileText } = window.NekoData;
 const $ = id => document.getElementById(id);
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 const pick = arr => arr[Math.floor(Math.random() * arr.length)];
@@ -36,7 +36,8 @@ function renderSelect() {
       <div class="cat-card-art">${buildCatSvg(cat)}</div>
       <div>
         <span class="badge ${cat.levelClass}">${cat.level}</span>
-        <h3>${cat.name}</h3>
+        <h3>${cat.petName}</h3>
+        <p class="cat-profile">${profileText(cat)}</p>
         <p>${cat.description}</p>
         <dl>
           <dt>なでなでポイント</dt><dd>${likesText(cat)}</dd>
@@ -76,7 +77,8 @@ function startGame(cat) {
   };
   stage.innerHTML = buildCatSvg(cat, { interactive: true });
   stage.querySelectorAll('.float').forEach(el => el.remove());
-  $('catName').textContent = cat.name;
+  $('catName').textContent = cat.petName;
+  $('catProfile').textContent = profileText(cat);
   $('catLevel').textContent = cat.level;
   $('catLevel').className = 'badge ' + cat.levelClass;
   $('legend').textContent = `なでなでポイント：${likesText(cat)}　・　タップでなでなで`;
@@ -246,7 +248,10 @@ function showResult() {
   if (isNew) saveBest(cat.id, hearts);
 
   $('resultArt').innerHTML = buildCatSvg(cat, { className: hearts > 0 ? 'happy' : 'angry' });
-  $('resultName').textContent = `${cat.name}（${cat.level}）`;
+  $('resultName').textContent = cat.petName;
+  $('resultLevel').textContent = cat.level;
+  $('resultLevel').className = 'badge ' + cat.levelClass;
+  $('resultProfile').textContent = profileText(cat);
   $('resultHearts').textContent = hearts;
   const record = $('resultRecord');
   record.textContent = isNew ? '🎉 新記録！' : `ハイスコア ❤️ ${best}`;

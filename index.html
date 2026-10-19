@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 <main class="game">
@@ -40,8 +40,13 @@
 
   <section id="screen-game" class="screen">
     <div class="game-head">
-      <strong id="catName"></strong>
-      <span id="catLevel" class="badge"></span>
+      <div class="game-title">
+        <div class="game-title-row">
+          <strong id="catName"></strong>
+          <span id="catLevel" class="badge"></span>
+        </div>
+        <p class="cat-profile" id="catProfile"></p>
+      </div>
       <div class="head-actions">
         <button class="small secondary btn-bgm" type="button" aria-pressed="true">♪ ON</button>
         <button class="small secondary" id="btnQuit">やめる</button>
@@ -64,7 +69,11 @@
   <section id="screen-result" class="screen">
     <h2>けっか ♡</h2>
     <div class="result-art" id="resultArt"></div>
-    <p class="result-name" id="resultName"></p>
+    <div class="result-title">
+      <strong id="resultName"></strong>
+      <span id="resultLevel" class="badge"></span>
+    </div>
+    <p class="cat-profile result-profile" id="resultProfile"></p>
     <p class="result-hearts">❤️ <strong id="resultHearts">0</strong></p>
     <p class="result-record" id="resultRecord"></p>
     <p class="result-comment" id="resultComment"></p>
